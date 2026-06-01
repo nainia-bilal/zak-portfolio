@@ -1,4 +1,5 @@
 // src/components/HeroSection.jsx
+import { ArrowRight, Download } from 'lucide-react';
 import { useLang } from '../hooks/useLang.js';
 import { FadeIn, RevealText } from './AnimatedText.jsx';
 import Particles from './Particles.jsx';
@@ -62,9 +63,7 @@ export default function HeroSection() {
                 onClick={() => scrollTo('projects')}
               >
                 {t.hero.cta1}
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                  <path d="M3 8h10M8 3l5 5-5 5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                </svg>
+                <ArrowRight size={16} strokeWidth={2} />
               </button>
               <button
                 className="btn btn-outline"

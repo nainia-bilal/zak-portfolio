@@ -1,5 +1,6 @@
 // src/components/Navbar.jsx
 import { useState, useEffect } from 'react';
+import { Menu, X } from 'lucide-react';
 import { useLang } from '../hooks/useLang.js';
 
 const LINKS = ['home', 'about', 'projects', 'services', 'contact'];
@@ -71,10 +72,13 @@ export default function Navbar({ activeSection }) {
               onClick={() => setMenuOpen(v => !v)}
               aria-label="Toggle menu"
               aria-expanded={menuOpen}
+              style={{ background: 'none', border: 'none', cursor: 'none', color: 'white', padding: 8, display: 'flex', alignItems: 'center', justifyContent: 'center' }}
             >
-              <span style={{ transform: menuOpen ? 'rotate(45deg) translateY(7px)' : 'none' }} />
-              <span style={{ opacity: menuOpen ? 0 : 1, transform: menuOpen ? 'scaleX(0)' : 'none' }} />
-              <span style={{ transform: menuOpen ? 'rotate(-45deg) translateY(-7px)' : 'none' }} />
+              {menuOpen ? (
+                <X size={24} strokeWidth={2} />
+              ) : (
+                <Menu size={24} strokeWidth={2} />
+              )}
             </button>
           </div>
         </div>
@@ -92,10 +96,10 @@ export default function Navbar({ activeSection }) {
         >
           <button
             onClick={() => setMenuOpen(false)}
-            style={{ position: 'absolute', top: 24, right: 24, background: 'none', border: 'none', cursor: 'none', color: 'rgba(255,255,255,0.5)', fontSize: '1.5rem' }}
+            style={{ position: 'absolute', top: 24, right: 24, background: 'none', border: 'none', cursor: 'none', color: 'rgba(255,255,255,0.5)', padding: 8, display: 'flex', alignItems: 'center', justifyContent: 'center' }}
             aria-label="Close menu"
           >
-            ✕
+            <X size={24} strokeWidth={2} />
           </button>
           {LINKS.map((link, i) => (
             <a

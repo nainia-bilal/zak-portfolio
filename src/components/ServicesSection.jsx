@@ -1,6 +1,15 @@
 // src/components/ServicesSection.jsx
+import { Film, PenTool, Palette, Briefcase, BarChart3 } from 'lucide-react';
 import { useLang } from '../hooks/useLang.js';
 import { FadeIn } from './AnimatedText.jsx';
+
+const SERVICE_ICONS = {
+  '🎬': Film,
+  '✍️': PenTool,
+  '🎨': Palette,
+  '💼': Briefcase,
+  '📊': BarChart3,
+};
 
 const SERVICE_ACCENTS = [
   { grad: 'linear-gradient(135deg, rgba(139,92,246,0.15) 0%, transparent 70%)', border: 'rgba(139,92,246,0.2)' },
@@ -43,7 +52,12 @@ export default function ServicesSection() {
                     border: `1px solid ${acc.border}`,
                   }}
                 >
-                  <span className="service-icon">{service.icon}</span>
+                  <div className="service-icon-wrapper">
+                    {(() => {
+                      const IconComponent = SERVICE_ICONS[service.icon];
+                      return IconComponent ? <IconComponent size={32} strokeWidth={1.5} /> : <span className="service-icon">{service.icon}</span>;
+                    })()}
+                  </div>
                   <h3 className="service-title">{service.title}</h3>
                   <p className="service-desc">{service.desc}</p>
 

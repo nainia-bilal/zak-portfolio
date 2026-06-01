@@ -14,8 +14,17 @@ const CAT_COLORS = {
 
 function ProjectCard({ project, t, onClick }) {
   const col = CAT_COLORS[project.category] || { bg: 'var(--white-5)', color: 'var(--white-50)' };
+  
+  const handleCardClick = () => {
+    if (project.url) {
+      window.open(project.url, '_blank', 'noopener,noreferrer');
+    } else {
+      onClick(project);
+    }
+  };
+
   return (
-    <div className="project-card glass" onClick={() => onClick(project)}>
+    <div className="project-card glass" onClick={handleCardClick} style={{ cursor: project.url ? 'pointer' : 'default' }}>
       <div className="project-thumb">
         {project.thumbnail ? (
           <>
@@ -49,6 +58,17 @@ function ProjectCard({ project, t, onClick }) {
             </span>
           )}
         </div>
+        {project.url && (
+          <a
+            href={project.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="project-view-btn"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {t.projects.viewBtn} →
+          </a>
+        )}
       </div>
     </div>
   );

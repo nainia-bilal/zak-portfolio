@@ -1,5 +1,6 @@
 // src/components/ContactSection.jsx
 import { useState } from 'react';
+import { ExternalLink, Camera, Mail, Download } from 'lucide-react';
 import { useLang } from '../hooks/useLang.js';
 import { FadeIn } from './AnimatedText.jsx';
 import Particles from './Particles.jsx';
@@ -7,21 +8,21 @@ import Particles from './Particles.jsx';
 const SOCIAL = [
   {
     key: 'linkedin',
-    icon: '🔗',
+    icon: ExternalLink,
     href: 'https://www.linkedin.com/in/zakaria-boubkeraoui-2a55a13a9',
     label: 'LinkedIn',
     sub: '/in/zakaria-boubkeraoui',
   },
   {
     key: 'instagram',
-    icon: '📸',
+    icon: Camera,
     href: 'https://www.instagram.com/_d_zekoo',
     label: 'Instagram',
     sub: '@_d_zekoo',
   },
   {
     key: 'email',
-    icon: '✉️',
+    icon: Mail,
     href: 'mailto:zaki200615@gmail.com',
     label: 'Email',
     sub: 'zaki200615@gmail.com',
@@ -78,30 +79,36 @@ export default function ContactSection() {
             <div className="contact-info">
               <p className="label" style={{ marginBottom: 8 }}>{t.contact.connectLabel}</p>
 
-              {SOCIAL.map(s => (
-                <a
-                  key={s.key}
-                  href={s.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="contact-link glass"
-                >
-                  <div className="contact-link-icon">{s.icon}</div>
-                  <div>
-                    <p className="heading-sm">{t.contact.social[s.key]}</p>
-                    <p className="body-sm">{s.sub}</p>
-                  </div>
-                </a>
-              ))}
+              {SOCIAL.map(s => {
+                const IconComponent = s.icon;
+                return (
+                  <a
+                    key={s.key}
+                    href={s.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="contact-link glass icon-hover"
+                  >
+                    <div className="contact-link-icon">
+                      <IconComponent size={24} strokeWidth={1.5} />
+                    </div>
+                    <div>
+                      <p className="heading-sm">{t.contact.social[s.key]}</p>
+                      <p className="body-sm">{s.sub}</p>
+                    </div>
+                  </a>
+                );
+              })}
 
               {/* Download CV */}
               <a
                 href="/cv/zakaria-cv.pdf"
                 download="Zakaria_Boubkeraoui_CV.pdf"
                 className="btn btn-red"
-                style={{ marginTop: 8, width: 'fit-content' }}
+                style={{ marginTop: 8, width: 'fit-content', display: 'inline-flex', alignItems: 'center', gap: 8 }}
               >
-                ⬇ {t.contact.cvBtn}
+                <Download size={16} strokeWidth={2} />
+                {t.contact.cvBtn}
               </a>
             </div>
           </FadeIn>

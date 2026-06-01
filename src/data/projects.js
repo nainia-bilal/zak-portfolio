@@ -4,7 +4,8 @@
 // 1. Copy one of the objects below and add it to the array
 // 2. Set a unique id (increment from last)
 // 3. Place thumbnail in public/images/projects/
-// 4. Fill in title, category, description, tools, year
+// 4. Fill in title, category, description, tools, year, url
+// 5. url is optional - if not provided, button won't show
 // ──────────────────────────────────────────────
 
 const projects = [
@@ -16,6 +17,7 @@ const projects = [
     thumbnail: "/images/projects/project-1.jpg",
     tools: ["Canva", "PicsArt"],
     year: "2024",
+    url: "https://your-project-link-1.com",
   },
   {
     id: 2,
@@ -25,6 +27,7 @@ const projects = [
     thumbnail: "/images/projects/project-2.jpg",
     tools: ["CapCut", "InShot"],
     year: "2024",
+    url: "https://your-project-link-2.com",
   },
   {
     id: 3,
@@ -34,6 +37,7 @@ const projects = [
     thumbnail: "/images/projects/project-3.jpg",
     tools: ["Canva", "Meitu"],
     year: "2024",
+    url: "https://your-project-link-3.com",
   },
   {
     id: 4,
@@ -43,6 +47,7 @@ const projects = [
     thumbnail: "/images/projects/project-4.jpg",
     tools: ["Canva"],
     year: "2023",
+    url: "https://your-project-link-4.com",
   },
   {
     id: 5,
@@ -52,6 +57,7 @@ const projects = [
     thumbnail: "/images/projects/project-5.jpg",
     tools: ["PicsArt", "Meitu"],
     year: "2023",
+    url: "https://your-project-link-5.com",
   },
   {
     id: 6,
@@ -61,6 +67,7 @@ const projects = [
     thumbnail: "/images/projects/project-6.jpg",
     tools: ["CapCut", "InShot"],
     year: "2024",
+    url: "https://your-project-link-6.com",
   },
 ];
 
